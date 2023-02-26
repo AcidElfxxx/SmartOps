@@ -44,17 +44,21 @@
 }
 
 .nav-links {
-    color: white;
+    color: #5779A2;
     text-decoration: none;
     padding: 10px 15px;
 }
 
 .nav-links:hover {
-    background-color: #28A0FF;
+    /*background-color: #28A0FF;*/
+    color: #28A0FF;
     border-radius: 4px;
     transition: all 0.2s ease-out;
 }
 
+.nav-links:active {
+    color: #28A0FF;
+}
 
 @media screen and (max-width: 960px) {
     .NavbarItems {

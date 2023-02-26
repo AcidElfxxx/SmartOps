@@ -5,11 +5,6 @@
     color: #fff;
 }
 
-.map-container {
-    
-
-}
-
-.message-wrapper {
-    height: 70%;
+.sidebar-wrapper button {
+    margin: 20px 0;
 }

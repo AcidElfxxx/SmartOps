@@ -4,8 +4,10 @@ import { Button } from '../Button';
 import './MainDisplay.css'
 import './Ships.css'
 import './Map.css'
+import './ConversationLog.css'
 import WhoTalking from './WhoTalking';
 import Map from './Map';
+import ConversationLog from './ConversationLog';
 
 const Layout = () => {
     return (
@@ -22,25 +24,17 @@ const Sidebar = () => {
 
     return (
         <div className='sidebar-wrapper'>
-            <Map isExpanded={isMapExpanded} />
-            <button onClick={() => setIsMapExpanded(!isMapExpanded)}>View</button>
+            <div className={`map-wrapper ${isMapExpanded ? 'expanded' : ''}`}>
+                <Map isExpanded={isMapExpanded} />
+            </div>
+            <button onClick={() => setIsMapExpanded(!isMapExpanded)}>
+                {isMapExpanded ? 'Show on map' : 'Close Map'}
+            </button>
             <ConversationLog />
-
         </div>
     );
 };
 
-
-const ConversationLog = () => (
-    <div className="message-wrapper">
-        <h2 style={{ fontSize: '18px', textAlign: 'center' }}>Conversation Log</h2>
-        <ul className='message-list' style={{ listStyleType: 'none', padding: 0 }}>
-            <li className='log' style={{ margin: '10px 0', borderBottom: '1px solid #ccc' }}>Message 1</li>
-            <li className='log' style={{ margin: '10px 0', borderBottom: '1px solid #ccc' }}>Message 2</li>
-            <li className='log' style={{ margin: '10px 0', borderBottom: '1px solid #ccc' }}>Message 3</li>
-        </ul>
-    </div>
-);
 
 
 // The function to component for ships list and main display
@@ -48,18 +42,9 @@ const MainContent = () => (
     <div style={{ width: '80%', height: '100%', backgroundColor: '#000' }}>
         <Ships />
         <MainDisplay />
-        {/*<button>Who's Speaking</button>*/}
     </div>
 );
 
-
-// The display for the information
-const items = [
-    { id: 1, title: 'Name', name: 'BOB THE BOAT' },
-    { id: 2, title: 'IMO', name: '2718281' },
-    { id: 3, title: 'MMSI', name: '314159265' },
-    { id: 4, title: 'Call sign', name: 'ABCD' },
-];
 
 const MainDisplay = () => {
     const [data, setData] = useState(null);
@@ -104,12 +89,6 @@ const MainDisplay = () => {
     );
 };
 
-const Item = ({ title, name }) => (
-    <li className="item">
-        <h2>{title}</h2>
-        <p>{name}</p>
-    </li>
-);
 
 // The list of ship item that are within the range
 const ships = [

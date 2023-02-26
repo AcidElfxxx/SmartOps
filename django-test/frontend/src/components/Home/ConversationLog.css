@@ -1,0 +1,134 @@
+.message-wrapper {
+    height: 500px;
+    background-color: #262626;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .conversation-header {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    /*background-color: #0084ff;*/
+    border-bottom: 2px solid;
+    color: #fff;
+    margin: 0;
+  }
+  
+  .message-list {
+    list-style: none;
+    padding: 0;
+    overflow-y: scroll;
+    margin: 0;
+  }
+  
+  .message {
+    background-color: #363636;
+    /*border: 1px solid #d8d8d8;*/
+    border-radius: 0 20px 20px 20px;
+    padding: 10px;
+    margin: 10px;
+    max-width: 80%;
+    word-break: break-word;
+  }
+  
+  .received {
+    align-self: flex-start;
+    background-color: #363636;
+    border-radius: 0 20px 20px 20px;
+  }
+  
+  .replied {
+    align-self: flex-end;
+    background-color: #0084ff;
+    color: #fff;
+    border-radius: 20px 0 20px 20px;
+  }
+  
+  .replied::before {
+    content: "";
+    position: absolute;
+    border: 10px solid transparent;
+    border-right-color: #0084ff;
+    right: -20px;
+    top: 0;
+  }
+  
+  .received::before {
+    content: "";
+    position: absolute;
+    border: 10px solid transparent;
+    border-left-color: #fff;
+    left: -20px;
+    top: 0;
+  }
+  
+  .message-content {
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+  }
+  
+  .message-header {
+    display: flex;
+    font-size: 10px;
+    justify-content: flex-start;
+  }
+
+  .message-sender {
+    margin-right: 5px;
+  }
+
+  .message-text {
+    display: flex;
+    margin-right: 5px;
+  }
+
+  .aud_img {
+    width: 100px;
+  }
+
+  .audio-icon {
+    margin-left: 10px;
+  }
+  
+
+
+
+
+  
+
+
+  
+
+
+  
+  .message.received {
+    align-self: flex-start;
+  }
+  
+  .message.replied {
+    align-self: flex-end;
+  }
+  
+  .message-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  .sender {
+    font-weight: bold;
+    color: #0084ff;
+  }
+  
+  .receiver {
+    font-weight: bold;
+    color: #4d4d4d;
+  }
+  
+  .time {
+    font-size: 12px;
+    color: #aaa;
+  }
+  
