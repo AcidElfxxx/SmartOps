@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react'
 import { Button } from '../Button';
 import './MainDisplay.css'
 import './Ships.css'
-import './Map.css'
-import './ConversationLog.css'
+import '../Map/Map.css'
+import '../ConversationLog/ConversationLog.css'
 import WhoTalking from './WhoTalking';
-import Map from './Map';
-import ConversationLog from './ConversationLog';
+import Map from '../Map/Map';
+import ConversationLog from '../ConversationLog/ConversationLog';
 
 const Layout = () => {
     return (
