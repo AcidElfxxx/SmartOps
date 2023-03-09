@@ -77,7 +77,7 @@ const MainDisplay = () => {
             <div className="home_content">
                 <h1>Speaking now</h1>
                 <div className="signal">
-                    <img src="../Assets/viz.gif" alt="freq"></img>
+                    <img height="50px" width="200px" src="../Assets/viz.gif" alt="freq"></img>
                 </div>
                 <div className="transcript">{data ? data.paragraph : 'Loading...'}</div>
                 {/* <button>Who's talking</button> */}
