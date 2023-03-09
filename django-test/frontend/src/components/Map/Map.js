@@ -14,7 +14,7 @@ class Map extends Component {
 
         googleMapsScript.addEventListener('load', () => {
             this.map = new window.google.maps.Map(this.mapRef.current, {
-                center: { lat: 37.7749, lng: -122.4194 }, //lat: 40.712776, lng: -74.005974
+                center: { lat: 60.4364, lng: 22.2192 }, //lat: 40.712776, lng: -74.005974
                 zoom: 12
             });
         });
