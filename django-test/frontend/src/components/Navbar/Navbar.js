@@ -13,7 +13,10 @@ const Navbar = () => {
 
     return (
         <nav className="NavbarItems">
-            <h1 className="navbar-logo">SmartOps</h1>
+            <div className='logoWrapper'>
+                <div className='logo'><img src="../Assets/logo.png" alt="freq"></img></div>
+                <h1 className="navbar-logo">Chatter</h1>
+            </div>
             {/* <div className="menu-icon" onClick={this.handleClick}>
                 <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
             </div> */}

@@ -3,8 +3,11 @@ import { useState, useEffect } from 'react'
 import { Button } from '../Button';
 import './MainDisplay.css'
 import './Ships.css'
-import './Map.css'
+import '../Map/Map.css'
+import '../ConversationLog/ConversationLog.css'
 import WhoTalking from './WhoTalking';
+import Map from '../Map/Map';
+import ConversationLog from '../ConversationLog/ConversationLog';
 
 const Layout = () => {
     return (
@@ -21,39 +24,17 @@ const Sidebar = () => {
 
     return (
         <div className='sidebar-wrapper'>
-            <Map isExpanded={isMapExpanded} />
-            <button onClick={() => setIsMapExpanded(!isMapExpanded)}>View</button>
+            <div className={`map-wrapper ${isMapExpanded ? 'expanded' : ''}`}>
+                <Map isExpanded={isMapExpanded} />
+            </div>
+            <button onClick={() => setIsMapExpanded(!isMapExpanded)}>
+                {isMapExpanded ? 'Show on map' : 'Close Map'}
+            </button>
             <ConversationLog />
-
         </div>
     );
 };
 
-
-const Map = ({ isExpanded }) => {
-    const mapStyle = {
-        height: isExpanded ? '100%' : '30%',
-    };
-
-    return (
-        <div className='map-container' style={mapStyle}>
-            <h2 style={{ fontSize: '18px', textAlign: 'center' }}>Map</h2>
-            <img src="/images/map.jpg" alt="Map" style={{ width: '100%' }} />
-        </div>
-    );
-};
-
-
-const ConversationLog = () => (
-    <div className="message-wrapper">
-        <h2 style={{ fontSize: '18px', textAlign: 'center' }}>Conversation Log</h2>
-        <ul className='message-list' style={{ listStyleType: 'none', padding: 0 }}>
-            <li className='log' style={{ margin: '10px 0', borderBottom: '1px solid #ccc' }}>Message 1</li>
-            <li className='log' style={{ margin: '10px 0', borderBottom: '1px solid #ccc' }}>Message 2</li>
-            <li className='log' style={{ margin: '10px 0', borderBottom: '1px solid #ccc' }}>Message 3</li>
-        </ul>
-    </div>
-);
 
 
 // The function to component for ships list and main display
@@ -61,18 +42,9 @@ const MainContent = () => (
     <div style={{ width: '80%', height: '100%', backgroundColor: '#000' }}>
         <Ships />
         <MainDisplay />
-        {/*<button>Who's Speaking</button>*/}
     </div>
 );
 
-
-// The display for the information
-const items = [
-    { id: 1, title: 'Name', name: 'BOB THE BOAT' },
-    { id: 2, title: 'IMO', name: '2718281' },
-    { id: 3, title: 'MMSI', name: '314159265' },
-    { id: 4, title: 'Call sign', name: 'ABCD' },
-];
 
 const MainDisplay = () => {
     const [data, setData] = useState(null);
@@ -105,7 +77,7 @@ const MainDisplay = () => {
             <div className="home_content">
                 <h1>Speaking now</h1>
                 <div className="signal">
-                    <img src="../Assets/Vector.png" alt="freq"></img>
+                    <img height="50px" width="200px" src="../Assets/viz.gif" alt="freq"></img>
                 </div>
                 <div className="transcript">{data ? data.paragraph : 'Loading...'}</div>
                 {/* <button>Who's talking</button> */}
@@ -117,12 +89,6 @@ const MainDisplay = () => {
     );
 };
 
-const Item = ({ title, name }) => (
-    <li className="item">
-        <h2>{title}</h2>
-        <p>{name}</p>
-    </li>
-);
 
 // The list of ship item that are within the range
 const ships = [
@@ -144,10 +110,13 @@ const Ships = () => (
 );
 
 const Ship = ({ name, captain }) => (
-    <div className="ship_img">
-        <img src={`/Assets/ships/${name}.jpg`} alt={name} />
-        {/* <h2>{name}</h2>
-        <p>Captain: {captain}</p> */}
+    <div className='shipWrapper'>
+        <div className="ship_img">
+            <img src={`../Assets/ships/icon.png`} alt={name} />
+            {/*<img src={`../Assets/ships/${name}.png`} alt={name} />
+            <h2>{name}</h2>
+            <p>Captain: {captain}</p> */}
+        </div>
     </div>
 );
 

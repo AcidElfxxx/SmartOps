@@ -1,0 +1,10 @@
+.sidebar-wrapper {
+    width: 20%; 
+    height: 100%; 
+    background-color: #000; 
+    color: #fff;
+}
+
+.sidebar-wrapper button {
+    margin: 20px 0;
+}
